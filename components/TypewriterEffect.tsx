@@ -8,7 +8,7 @@ export default function TypewriterEffect() {
         <span className="text-orange-500">
           <Typewriter
             options={{
-              strings: ["JPG", "WebP", "PNG"],
+              strings: ["JPG", "WebP", "PNG", "SVG"],
               autoStart: true,
               loop: true,
             }}

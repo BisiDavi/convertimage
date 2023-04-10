@@ -25,7 +25,7 @@ export default function useUploadImage() {
     );
   }
 
-  const { getRootProps, getInputProps, isDragActive ,isDragAccept, isDragReject } = useDropzone({
+  const dropzone = useDropzone({
     accept: {
       "image/*": [],
     },
@@ -36,9 +36,10 @@ export default function useUploadImage() {
   });
 
   return {
-    getRootProps,
-    getInputProps,
-    isDragActive,
+    dropzone,
     files,
   };
 }
+
+
+// { getRootProps, getInputProps, isDragActive ,isDragAccept, isDragReject }
