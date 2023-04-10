@@ -28,7 +28,7 @@ export default function useUploadImage() {
 
   const dropzone = useDropzone({
     accept: {
-      "image/*": [],
+      "image/*": ["image/*"],
     },
     onDrop: useCallback(
       (acceptedFiles: any[]) => onDropHandler(acceptedFiles),
@@ -36,6 +36,7 @@ export default function useUploadImage() {
     ),
     onDragOver: () => setDrag(true),
     onDragLeave: () => setDrag(false),
+    onDropRejected: () => setDrag(false),
   });
 
   return {
