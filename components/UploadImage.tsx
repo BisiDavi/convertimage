@@ -1,22 +1,10 @@
-import { useCallback, useState } from "react";
-import { useDropzone } from "react-dropzone";
+import { useEffect } from "react";
+
+import useUploadImage from "@/hooks/useUploadImage";
 
 export default function UploadImage() {
-  const [files, setFiles] = useState([])
-  const onDrop = useCallback((acceptedFiles: any[]) => {
-    acceptedFiles.forEach((file) => {
-      const reader = new FileReader();
+  const { files, isDragActive, getRootProps, getInputProps } = useUploadImage();
 
-      reader.onabort = () => console.log("file reading aborted");
-      reader.onerror = () => console.log("file reading has failed");
-      reader.onload = () => {
-        const binaryStr = reader.result;
-        console.log("binaryStr", binaryStr);
-      };
-      reader.readAsArrayBuffer(file)
-    });
-  }, []);
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
   const text = isDragActive
     ? "Drop the files here"
     : "Drag 'n' drop some files here, or click to select files";

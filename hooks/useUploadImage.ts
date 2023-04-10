@@ -3,7 +3,8 @@ import { useDropzone } from "react-dropzone";
 
 export default function useUploadImage() {
   const [files, setFiles] = useState<any[]>([]);
-  const onDrop = useCallback((acceptedFiles: any[]) => {
+
+  function onDropHandler(acceptedFiles: any[]) {
     acceptedFiles.forEach((file) => {
       const reader = new FileReader();
 
@@ -15,25 +16,29 @@ export default function useUploadImage() {
       };
       reader.readAsArrayBuffer(file);
     });
-  }, []);
+    setFiles(
+      acceptedFiles.map((file) =>
+        Object.assign(file, {
+          preview: URL.createObjectURL(file),
+        })
+      )
+    );
+  }
+
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     accept: {
       "image/*": [],
     },
-    onDrop: (acceptedFiles) => {
-      setFiles(
-        acceptedFiles.map((file) =>
-          Object.assign(file, {
-            preview: URL.createObjectURL(file),
-          })
-        )
-      );
-    },
+    onDrop: useCallback(
+      (acceptedFiles: any[]) => onDropHandler(acceptedFiles),
+      []
+    ),
   });
 
   return {
     getRootProps,
     getInputProps,
     isDragActive,
+    files,
   };
 }
