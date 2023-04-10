@@ -11,7 +11,7 @@ export default function UploadImage() {
   return (
     <>
       <div
-        className="border rounded-lg h-96 w-2/5 p-4 flex "
+        className="border-4 transition duration-75 ease-in-out border-dotted rounded-lg h-96 w-2/5 p-4 flex "
         {...getRootProps()}
       >
         <input
