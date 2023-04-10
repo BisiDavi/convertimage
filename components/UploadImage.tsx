@@ -8,11 +8,15 @@ const ImageThumbs = dynamic(() => import("@/components/ImageThumbs"), {
 });
 
 export default function UploadImage() {
-  const { files, dropzone } = useUploadImage();
+  const { files, dropzone, drag } = useUploadImage();
+
+  const borderStyle = drag ? "border-blue-800" : "";
 
   return (
     <div className="flex flex-col w-1/2">
-      <div className="border-4 transition duration-75 ease-in-out border-dotted  h-96 w-4/5 mx-auto rounded-lg p-4">
+      <div
+        className={`border-4 ${borderStyle} transition duration-75 ease-in-out border-dotted  h-96 w-4/5 mx-auto rounded-lg p-4`}
+      >
         <UploadImageInput dropzone={dropzone} files={files} />
       </div>
       <ImageThumbs files={files} />

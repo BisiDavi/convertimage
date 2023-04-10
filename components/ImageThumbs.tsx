@@ -5,11 +5,11 @@ interface Props {
 
 export default function ImageThumbs({ files }: Props) {
   console.log("files", files);
-  
+
   return (
     <>
       {files.length > 0 && (
-        <div className="thumbs flex space-x-8 my-4 border p-4 rounded-lg">
+        <div className="thumbs flex space-x-8 my-4 border p-4 rounded-lg items-center">
           {files.map((file) => (
             <div className="thumb" key={file.name} title={file.name}>
               <img

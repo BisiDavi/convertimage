@@ -3,6 +3,7 @@ import { useDropzone } from "react-dropzone";
 
 export default function useUploadImage() {
   const [files, setFiles] = useState<any[]>([]);
+  const [drag, setDrag] = useState(false);
 
   function onDropHandler(acceptedFiles: any[]) {
     acceptedFiles.forEach((file) => {
@@ -33,13 +34,13 @@ export default function useUploadImage() {
       (acceptedFiles: any[]) => onDropHandler(acceptedFiles),
       []
     ),
+    onDragOver: () => setDrag(true),
+    onDragLeave: () => setDrag(false),
   });
 
   return {
     dropzone,
     files,
+    drag,
   };
 }
-
-
-// { getRootProps, getInputProps, isDragActive ,isDragAccept, isDragReject }
