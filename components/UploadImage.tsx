@@ -1,7 +1,8 @@
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
 
 export default function UploadImage() {
+  const [files, setFiles] = useState([])
   const onDrop = useCallback((acceptedFiles: any[]) => {
     acceptedFiles.forEach((file) => {
       const reader = new FileReader();
@@ -12,7 +13,7 @@ export default function UploadImage() {
         const binaryStr = reader.result;
         console.log("binaryStr", binaryStr);
       };
-      reader.readAsArrayBuffer(file);
+      reader.readAsArrayBuffer(file)
     });
   }, []);
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });

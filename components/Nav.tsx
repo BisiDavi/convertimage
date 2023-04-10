@@ -10,13 +10,13 @@ export default function Nav() {
       <ul className="flex space-x-6 p-0">
         {navContent.map((navItem) => {
           const activeLink =
-            router.route === navItem.link ? "text-orange-300" : "";
+            router.route === navItem.link ? "text-blue-800 font-bold" : "";
           return (
             <li key={navItem.link}>
               <Link href="/" className={`relative ${activeLink}`}>
                 {navItem.text}
                 {navItem.link === "/video-editor" && (
-                  <span className="absolute -right-16 -top-4 bg-orange-300 text-xs rounded-lg px-1 py-0.5">
+                  <span className="absolute text-white -right-16 -top-4 bg-blue-800 text-xs rounded-lg px-1 py-0.5">
                     Coming Soon
                   </span>
                 )}
