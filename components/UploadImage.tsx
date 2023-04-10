@@ -1,5 +1,8 @@
+
 export default function UploadImage() {
   return (
-    <div>UploadImage</div>
+    <div className="border rounded-lg h-96 w-2/5">
+
+    </div>
   )
 }
