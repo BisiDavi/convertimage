@@ -11,6 +11,7 @@ export default function UploadImageInput({ files, dropzone }: props) {
     isDragAccept,
     isDragReject,
   } = dropzone;
+
   const text = isDragActive
     ? "Drop the files here"
     : "Drag 'n' drop some files here, or click to select files";
