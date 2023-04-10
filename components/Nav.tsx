@@ -15,7 +15,7 @@ export default function Nav() {
             <li key={navItem.link}>
               <Link href="/" className={`relative ${activeLink}`}>
                 {navItem.text}
-                {navItem.text === "Video Editor" && (
+                {navItem.link === "/video-editor" && (
                   <span className="absolute -right-16 -top-4 bg-orange-300 text-xs rounded-lg px-1 py-0.5">
                     Coming Soon
                   </span>
