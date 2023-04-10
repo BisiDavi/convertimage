@@ -15,7 +15,7 @@ export default function UploadImage() {
   return (
     <div className="flex flex-col w-1/2">
       <div
-        className="border-4 transition duration-75 ease-in-out border-dotted  h-96 w-4/5 mx-auto rounded-lg p-4 flex "
+        className="border-4 transition duration-75 ease-in-out border-dotted  h-96 w-4/5 mx-auto rounded-lg p-4 flex"
         {...getRootProps()}
       >
         <input
