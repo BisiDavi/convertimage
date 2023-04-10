@@ -1,7 +1,5 @@
-/* eslint-disable @next/next/no-img-element */
-import { useEffect } from "react";
-
 import useUploadImage from "@/hooks/useUploadImage";
+import ImageThumbs from "@/components/ImageThumbs";
 
 export default function UploadImage() {
   const { files, isDragActive, getRootProps, getInputProps } = useUploadImage();
@@ -9,10 +7,6 @@ export default function UploadImage() {
   const text = isDragActive
     ? "Drop the files here"
     : "Drag 'n' drop some files here, or click to select files";
-
-  useEffect(() => {
-    return () => files.forEach((file) => URL.revokeObjectURL(file.preview()));
-  }, []);
 
   return (
     <>
@@ -29,18 +23,7 @@ export default function UploadImage() {
           {text}
         </p>
       </div>
-      <div className="thumbs">
-        {files.length > 0 &&
-          files.map((file) => (
-            <div className="thumb" key={file.name}>
-              <img
-                src={file.preview}
-                onLoad={() => URL.revokeObjectURL(file.preview)}
-                alt={file.name}
-              />
-            </div>
-          ))}
-      </div>
+      <ImageThumbs files={files} />
     </>
   );
 }
