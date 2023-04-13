@@ -7,7 +7,7 @@ export default function Nav() {
   const router = useRouter();
   return (
     <nav>
-      <ul className="flex space-x-6 p-0">
+      <ul className="space-x-6 p-0 hidden lg:flex">
         {navContent.map((navItem) => {
           const activeLink =
             router.route === navItem.link ? "text-blue-800 font-bold" : "";
