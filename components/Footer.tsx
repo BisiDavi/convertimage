@@ -5,7 +5,7 @@ import ImageContext from "@/context/imageContext";
 export default function Footer() {
   const { images } = useContext(ImageContext);
 
-  const footerStyle = images.length > 0 ? "" : "fixed";
+  const footerStyle = images.length > 3 ? "" : "fixed";
 
   return (
     <footer

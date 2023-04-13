@@ -18,7 +18,7 @@ export default function ProcessImage() {
     <>
       {images.length > 0 && (
         <section className="container py-4 bg-gray-100 px-4 rounded mt-2 mb-10">
-          <div className="mode">
+          <div className="mode mb-8">
             <select className="px-2 py-1" onChange={onSelectModeHandler}>
               {options.mode.map((optn) => (
                 <option key={optn.text} value={optn.text}>
