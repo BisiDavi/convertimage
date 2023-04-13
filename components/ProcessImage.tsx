@@ -8,9 +8,9 @@ export default function ProcessImage() {
 
   console.log("images", images);
   return (
-    <section className="container py-4">
+    <section className="container py-4 bg-gray-100 px-4 rounded">
       {images.map((imageItem) => (
-        <Progressbar key={imageItem.id} name={imageItem.name} value={30} />
+        <Progressbar key={imageItem.id} item={imageItem} value={20} />
       ))}
     </section>
   );

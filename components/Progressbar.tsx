@@ -1,13 +1,23 @@
+import formatImageSize from "@/utils/formatImageSize";
+
 interface Props {
-  name: string;
   value: number;
+  item: {
+    name: string;
+    size: number;
+  };
 }
 
-export default function Progressbar({ name, value }: Props) {
+export default function Progressbar({ item, value }: Props) {
+  const { name, size } = item;
+  const imageSize = formatImageSize(size);
   return (
-    <div className="flex items-center gap-8">
-      <label htmlFor={name}>{name}</label>
+    <div className="flex items-center gap-8 my-4">
+      <label htmlFor={name}>
+        {name} <span className="mx-2">{imageSize}</span>
+      </label>
       <progress id={name} max="100" value={value} className="rounded-xl" />
+      <span>{value}%</span>
       <style jsx>
         {`
           progress[value] {
