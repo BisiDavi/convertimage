@@ -16,23 +16,27 @@ export default function Progressbar({ item, value, options }: Props) {
   const imageSize = formatImageSize(size);
 
   return (
-    <div className="flex items-center gap-4 my-4 bg-gray-300 py-2 rounded px-5">
-      <label htmlFor={name}>
-        <span className="name">{name}</span>
-        <span className="ml-4">{imageSize}</span>
-      </label>
-      <progress id={name} max="100" value={value} className="rounded-xl" />
-      <span>{value}%</span>
-      <span className="bg-white px-2 rounded">{type}</span>
-      <div className="convert_to">
-        →
-        <select className="ml-4">
-          {options.map((img) => {
-            if (img !== type) {
-              return <option key={img}>{img}</option>;
-            }
-          })}
-        </select>
+    <div className="flex justify-between items-center my-4 bg-gray-300 py-2 rounded px-5">
+      <div className="flex gap-4">
+        <label htmlFor={name}>
+          <span className="name">{name}</span>
+          <span className="ml-4">{imageSize}</span>
+        </label>
+        <progress id={name} max="100" value={value} className="rounded-xl" />
+        <span>{value}%</span>
+      </div>
+      <div className="flex gap-4">
+        <span className="bg-white px-2 rounded">{type}</span>
+        <div className="convert_to">
+          →
+          <select className="ml-4">
+            {options.map((img) => {
+              if (img !== type) {
+                return <option key={img}>{img}</option>;
+              }
+            })}
+          </select>
+        </div>
       </div>
       <style jsx>
         {`
