@@ -7,7 +7,7 @@ export default function ProcessImage() {
   const { images } = useContext(ImageContext);
   const options = ["png", "jpeg", "webp"];
 
-  console.log('options',options)
+  
 
   return (
     <>
