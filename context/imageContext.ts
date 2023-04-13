@@ -1,7 +1,13 @@
 import { createContext } from "react";
 
-const defaultImageContext = {
-  image: [],
+type imageContextType = {
+  images: any[];
+  setImages: any;
+};
+const defaultImageContext: imageContextType = {
+  images: [],
+  setImages: () => {},
 };
 
-export const ImageContext = createContext(defaultImageContext);
+const ImageContext = createContext(defaultImageContext);
+export default ImageContext;
