@@ -2,15 +2,19 @@ import formatImageSize from "@/utils/formatImageSize";
 
 interface Props {
   value: number;
+  options: string[];
   item: {
     name: string;
     size: number;
+    type: string;
   };
 }
 
-export default function Progressbar({ item, value }: Props) {
+export default function Progressbar({ item, value, options }: Props) {
   const { name, size } = item;
+  const type = item.type.split("/")[1];
   const imageSize = formatImageSize(size);
+
   return (
     <div className="flex items-center gap-4 my-4 bg-gray-300 py-2 rounded px-5">
       <label htmlFor={name}>
@@ -19,6 +23,17 @@ export default function Progressbar({ item, value }: Props) {
       </label>
       <progress id={name} max="100" value={value} className="rounded-xl" />
       <span>{value}%</span>
+      <span className="bg-white px-2 rounded">{type}</span>
+      <div className="convert_to">
+        →
+        <select className="ml-4">
+          {options.map((img) => {
+            if (img !== type) {
+              return <option key={img}>{img}</option>;
+            }
+          })}
+        </select>
+      </div>
       <style jsx>
         {`
           .name {
