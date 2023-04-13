@@ -1,7 +1,8 @@
 [
   {
     "link": "/",
-    "text": "Convert Image"
+    "text": "Convert Image",
+    "available": true
   },
   {
     "link": "/image-editor",
