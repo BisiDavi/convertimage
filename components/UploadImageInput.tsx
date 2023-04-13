@@ -1,9 +1,8 @@
 interface props {
-  files: any[];
   dropzone: any;
 }
 
-export default function UploadImageInput({ files, dropzone }: props) {
+export default function UploadImageInput({ dropzone }: props) {
   const {
     getRootProps,
     getInputProps,

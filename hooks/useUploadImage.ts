@@ -1,9 +1,12 @@
-import { useCallback, useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useCallback, useContext, useState } from "react";
 import { useDropzone } from "react-dropzone";
 
+import ImageContext from "@/context/imageContext";
+
 export default function useUploadImage() {
-  const [files, setFiles] = useState<any[]>([]);
   const [drag, setDrag] = useState(false);
+  const { setImages } = useContext(ImageContext);
 
   function onDropHandler(acceptedFiles: any[]) {
     acceptedFiles.forEach((file) => {
@@ -17,7 +20,7 @@ export default function useUploadImage() {
       };
       reader.readAsArrayBuffer(file);
     });
-    setFiles(
+    setImages(
       acceptedFiles.map((file) =>
         Object.assign(file, {
           preview: URL.createObjectURL(file),
@@ -41,7 +44,6 @@ export default function useUploadImage() {
 
   return {
     dropzone,
-    files,
     drag,
   };
 }

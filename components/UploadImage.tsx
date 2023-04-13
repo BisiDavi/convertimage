@@ -2,7 +2,7 @@ import useUploadImage from "@/hooks/useUploadImage";
 import UploadImageInput from "@/components/UploadImageInput";
 
 export default function UploadImage() {
-  const { files, dropzone, drag } = useUploadImage();
+  const { dropzone, drag } = useUploadImage();
 
   const borderStyle = drag ? "border-blue-800" : "";
 
@@ -11,7 +11,7 @@ export default function UploadImage() {
       <div
         className={`border-4 ${borderStyle} transition duration-75 ease-in-out border-dotted h-60 lg:h-80 lg:w-4/5 mx-auto rounded-lg p-4`}
       >
-        <UploadImageInput dropzone={dropzone} files={files} />
+        <UploadImageInput dropzone={dropzone} />
       </div>
     </div>
   );
