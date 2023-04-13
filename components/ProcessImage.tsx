@@ -2,16 +2,11 @@ import { useContext, useState } from "react";
 
 import ImageContext from "@/context/imageContext";
 import Progressbar from "@/components/Progressbar";
+import options from "@/json/progress.json";
 
 export default function ProcessImage() {
   const [mode, setMode] = useState("");
   const { images } = useContext(ImageContext);
-  const options = ["png", "jpeg", "webp"];
-  const modeOptions = [
-    { text: "Select Mode" },
-    { text: "Convert" },
-    { text: "Optimize Size" },
-  ];
 
   function onSelectModeHandler(e: any) {
     if (e.target.value !== "Select Mode") {
@@ -25,7 +20,7 @@ export default function ProcessImage() {
         <section className="container py-4 bg-gray-100 px-4 rounded mt-2 mb-10">
           <div className="mode">
             <select className="px-2 py-1" onChange={onSelectModeHandler}>
-              {modeOptions.map((optn) => (
+              {options.mode.map((optn) => (
                 <option key={optn.text} value={optn.text}>
                   {optn.text}
                 </option>
@@ -37,7 +32,7 @@ export default function ProcessImage() {
               key={imageItem.id}
               item={imageItem}
               value={20}
-              options={options}
+              options={options.progress}
               mode={mode}
             />
           ))}

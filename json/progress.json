@@ -1,0 +1,8 @@
+{
+  "progress": ["png", "jpeg", "webp"],
+  "mode": [
+    { "text": "Select Mode" },
+    { "text": "Convert" },
+    { "text": "Optimize Size" }
+  ]
+}
