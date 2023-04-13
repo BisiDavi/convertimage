@@ -3,10 +3,6 @@ import dynamic from "next/dynamic";
 import useUploadImage from "@/hooks/useUploadImage";
 import UploadImageInput from "@/components/UploadImageInput";
 
-const ImageThumbs = dynamic(() => import("@/components/ImageThumbs"), {
-  ssr: false,
-});
-
 export default function UploadImage() {
   const { files, dropzone, drag } = useUploadImage();
 
@@ -19,7 +15,7 @@ export default function UploadImage() {
       >
         <UploadImageInput dropzone={dropzone} files={files} />
       </div>
-      <ImageThumbs files={files} />
+      {/* <ImageThumbs files={files} /> */}
     </div>
   );
 }
