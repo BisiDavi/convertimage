@@ -12,14 +12,26 @@ export default function Progressbar({ item, value }: Props) {
   const { name, size } = item;
   const imageSize = formatImageSize(size);
   return (
-    <div className="flex items-center gap-8 my-4">
+    <div className="flex items-center gap-8 my-4 bg-gray-300 py-2 rounded px-5">
       <label htmlFor={name}>
-        {name} <span className="mx-2">{imageSize}</span>
+        <span className="name">{name}</span>
+        <span className="ml-4">{imageSize}</span>
       </label>
       <progress id={name} max="100" value={value} className="rounded-xl" />
       <span>{value}%</span>
       <style jsx>
         {`
+          .name {
+            width: 200px;
+            display: block;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+          }
+          label {
+            display: flex;
+            align-items: center;
+          }
           progress[value] {
             appearance: none;
             border: none;
