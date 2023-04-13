@@ -13,7 +13,7 @@ export default function Nav() {
             router.route === navItem.link ? "text-blue-800 font-bold" : "";
           return (
             <li key={navItem.link}>
-              <Link href="/" className={`relative ${activeLink}`}>
+              <Link href={navItem.link} className={`relative ${activeLink}`}>
                 {navItem.text}
               </Link>
             </li>
