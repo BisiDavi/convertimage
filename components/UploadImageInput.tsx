@@ -13,7 +13,7 @@ export default function UploadImageInput({ dropzone }: props) {
 
   const text = isDragActive
     ? "Drop the files here"
-    : "Drag 'n' drop some files here, or click to select files";
+    : "Drag 'n' drop images (WebP, PNG, JPG) here, or click to select files";
 
   return (
     <div className="w-full h-full flex" {...getRootProps()}>

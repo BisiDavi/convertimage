@@ -12,7 +12,7 @@ export default function Progressbar({ item, value }: Props) {
   const { name, size } = item;
   const imageSize = formatImageSize(size);
   return (
-    <div className="flex items-center gap-8 my-4 bg-gray-300 py-2 rounded px-5">
+    <div className="flex items-center gap-4 my-4 bg-gray-300 py-2 rounded px-5">
       <label htmlFor={name}>
         <span className="name">{name}</span>
         <span className="ml-4">{imageSize}</span>
