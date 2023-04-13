@@ -13,9 +13,9 @@ export default function UploadImage() {
   const borderStyle = drag ? "border-blue-800" : "";
 
   return (
-    <div className="flex flex-col w-1/2">
+    <div className="flex flex-col lg:w-1/2 my-4 w-full">
       <div
-        className={`border-4 ${borderStyle} transition duration-75 ease-in-out border-dotted  h-96 w-4/5 mx-auto rounded-lg p-4`}
+        className={`border-4 ${borderStyle} transition duration-75 ease-in-out border-dotted  h-96 lg:w-4/5 mx-auto rounded-lg p-4`}
       >
         <UploadImageInput dropzone={dropzone} files={files} />
       </div>
