@@ -1,5 +1,3 @@
-import dynamic from "next/dynamic";
-
 import useUploadImage from "@/hooks/useUploadImage";
 import UploadImageInput from "@/components/UploadImageInput";
 
@@ -15,7 +13,6 @@ export default function UploadImage() {
       >
         <UploadImageInput dropzone={dropzone} files={files} />
       </div>
-      {/* <ImageThumbs files={files} /> */}
     </div>
   );
 }
