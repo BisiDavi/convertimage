@@ -3,6 +3,7 @@ import formatImageSize from "@/utils/formatImageSize";
 interface Props {
   value: number;
   options: string[];
+  mode: string;
   item: {
     name: string;
     size: number;
@@ -10,7 +11,7 @@ interface Props {
   };
 }
 
-export default function Progressbar({ item, value, options }: Props) {
+export default function Progressbar({ item, value, options, mode }: Props) {
   const { name, size } = item;
   const type = item.type.split("/")[1];
   const imageSize = formatImageSize(size);
@@ -27,16 +28,18 @@ export default function Progressbar({ item, value, options }: Props) {
       </div>
       <div className="flex gap-4">
         <span className="bg-white px-2 rounded">{type}</span>
-        <div className="convert_to">
-          →
-          <select className="ml-4">
-            {options.map((img) => {
-              if (img !== type) {
-                return <option key={img}>{img}</option>;
-              }
-            })}
-          </select>
-        </div>
+        {mode === "Convert" && (
+          <div className="convert_to">
+            →
+            <select className="ml-4">
+              {options.map((img) => {
+                if (img !== type) {
+                  return <option key={img}>{img}</option>;
+                }
+              })}
+            </select>
+          </div>
+        )}
       </div>
       <style jsx>
         {`
