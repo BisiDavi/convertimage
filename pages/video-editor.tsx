@@ -1,5 +1,7 @@
+import Layout from "@/components/Layout";
+
 export default function VideoEditor() {
   return (
-    <div>video-editor</div>
+    <Layout>video-editor</Layout>
   )
 }

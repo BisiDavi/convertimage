@@ -1,7 +1,7 @@
-import React from 'react'
+import Layout from "@/components/Layout";
 
 export default function ImageEditor() {
   return (
-    <div>image-editor</div>
+    <Layout>image-editor</Layout>
   )
 }
